@@ -1,0 +1,20 @@
+{
+  "name": "zero_production_tdd",
+  "version": "1.0.0",
+  "description": "Node API - Typescript, Jest, TDD",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leoCardosoDev/node_typescript_api_tdd.git"
+  },
+  "keywords": [],
+  "author": "Leonardo Cardoso de Oliveira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leoCardosoDev/node_typescript_api_tdd/issues"
+  },
+  "homepage": "https://github.com/leoCardosoDev/node_typescript_api_tdd#readme"
+}
