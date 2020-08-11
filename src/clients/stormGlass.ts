@@ -1,10 +1,17 @@
 import { AxiosStatic } from 'axios'
 
 export class StormGlass {
+  readonly stormGlassAPIParams = 
+  'swellDirection, swellHeight, swellPeriod, waveDirection, waveHeight, windDirection'
+  readonly stormGlassAPISource = 'noaaa'
   constructor(protected request: AxiosStatic) {}
   public async fetchPoints(lat: number, lng: number): Promise<any> {
     return this.request.get(
-      `https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}`
+      `https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${this.stormGlassAPIParams}&source=${this.stormGlassAPISource}&end=1592113802`
       )
   }
 }
+
+
+
+
