@@ -1,4 +1,5 @@
 import { AxiosStatic } from 'axios'
+import { InternalError } from '@src/utils/errors/internal-error'
 
 export interface StormGlassPointSource {
   [key: string]: number
@@ -30,6 +31,12 @@ export interface ForecastPoint {
   windSpeed: number
 }
 
+export class ClientRequestError extends InternalError {
+  constructor(message: string){
+    const internalMessage = `Unexpected error when trying to communicate to StormGlass`
+    super(`${internalMessage}: ${message}`)
+  }
+}
 
 export class StormGlass {
   readonly stormGlassAPIParams =
@@ -49,7 +56,7 @@ export class StormGlass {
       )
       return this.normalizeResponse(response.data)
     }catch(error){
-      throw new Error(`Unexpected error when trying to communicate to StormGlass: ${error.message} `)
+      throw new ClientRequestError(error.message)
     }
   }
 
